@@ -69,10 +69,39 @@ public class Executable {
     }
 
     private void jugadaHumano() {
-        // Implementación de jugada de humano
+
+        boolean flag = false;
+        do {
+            System.out.print("Ingrese la fila donde quiere colocar la pieza (0-2): ");
+            int filaOpcion = reader.nextInt();
+
+            if(filaOpcion >= 0 && filaOpcion <= 2) {
+    
+                System.out.print("Ingrese la columna donde quiere colocar la pieza (0-2): ");
+                int columnaOpcion = reader.nextInt();
+
+                if(columnaOpcion >= 0 && columnaOpcion <= 2) {
+                    System.out.println(cont.jugadaUsuario(filaOpcion,columnaOpcion));
+                    flag = true;
+                } else {
+                    System.out.println("Ingrese una columna valida");
+                    continue;
+                }
+
+            } else {
+                System.out.println("Ingrese una fila valida");
+            }
+        } while (!flag); 
     }
 
     private void validarGanador() {
-        // Implementación de la validación si alguien ya ganó el triqui
+        /*
+         * ¿que hay que hacer?
+         * Validar si en el tablero actual, ya existe un ganador, 
+         * ya sea que hayan hecho tres en raya en alguna columna, fila o diagonal. 
+         * En caso de haber ganador, decir si fue la máquina (tres X seguidas en fila, columna o diagonal) 
+         * o el jugador humano (tres O seguidas en fila, columna o diagonal).
+         */
+        System.out.println(cont.verificarJugada());
     }
 }
